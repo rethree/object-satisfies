@@ -1,12 +1,12 @@
 import test from 'ava';
-import { satisfies } from '../src';
+import satisfies from '../src';
 
 test('all keys are covered with predicates satisfied by the scenario -> returns true', t => {
   const o = { a: 42, b: 'a' };
 
   const actual = satisfies<typeof o>({
     a: x => x === 42,
-    b: x => x === 'a'
+    b: x => x === 'a',
   })(o);
 
   t.true(actual);
@@ -17,7 +17,7 @@ test('only keys covered with predicates satisfied by the scenario are provided -
 
   const actual = satisfies<typeof o>({
     a: x => x === 42,
-    b: x => x === 'a'
+    b: x => x === 'a',
   })(o);
 
   t.true(actual);
@@ -28,7 +28,7 @@ test('some conditions not satisfied -> fails', t => {
 
   const actual = satisfies<typeof o>({
     a: x => x === 42,
-    b: x => x === 'b'
+    b: x => x === 'b',
   })(o);
 
   t.false(actual);
@@ -40,7 +40,7 @@ test('some keys are symbols', t => {
 
   const actual = satisfies<typeof o>({
     a: x => x === 42,
-    [s]: x => x === 12
+    [s]: x => x === 12,
   })(o);
 
   t.true(actual);

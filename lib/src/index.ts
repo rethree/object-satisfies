@@ -12,12 +12,10 @@ type Spec<T extends Dictionary> = {
 
 const getOwnKeys = <T>(x: T): any[] => [
   ...Object.getOwnPropertyNames(x),
-  ...Object.getOwnPropertySymbols(x)
+  ...Object.getOwnPropertySymbols(x),
 ];
 
-export const satisfies = <T extends Dictionary>(
-  spec: Spec<T>
-): Predicate<[T]> => {
+export default <T extends Dictionary>(spec: Spec<T>): Predicate<[T]> => {
   const keys = getOwnKeys(spec);
   return (scenario: T): boolean =>
     keys.every(key => spec[key]!(scenario[key], key in scenario));

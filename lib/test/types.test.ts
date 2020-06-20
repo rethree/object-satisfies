@@ -1,14 +1,14 @@
 import test from 'ava';
-import { satisfies } from '../src';
+import satisfies from '../src';
 
-const T = x => x === x;
+const T = <a>(x: a) => x === x;
 
 test('explicit type parameter -> spec ≡ scenario -> compiles', t => {
   const o = { a: 42, b: 'a' };
 
   satisfies<typeof o>({
     a: T,
-    b: T
+    b: T,
   })(o);
 
   t.pass('compilation-only');
@@ -21,7 +21,7 @@ test('explicit type parameter -> spec ⊇ scenario -> fails', t => {
     a: T,
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-expect-error
-    b: T
+    b: T,
   })(o);
 
   t.pass('compilation-only');
@@ -31,7 +31,7 @@ test('explicit type parameter -> spec ⊆ scenario -> compiles', t => {
   const o = { a: 42, b: 'a' };
 
   satisfies<typeof o>({
-    a: T
+    a: T,
   })(o);
 
   t.pass('compilation-only');
@@ -42,20 +42,18 @@ test('implicit type parameter -> spec ≡ scenario -> compiles', t => {
 
   satisfies({
     a: T,
-    b: T
+    b: T,
   })(o);
 
   t.pass('compilation-only');
 });
 
-test('implicit type parameter -> spec ⊇ scenario -> fails', t => {
+test('implicit type parameter -> spec ⊇ scenario -> compiles', t => {
   const o = { a: 42 };
 
   satisfies({
     a: T,
-    b: T
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    //@ts-expect-error
+    b: T,
   })(o);
 
   t.pass('compilation-only');
@@ -65,7 +63,7 @@ test('implicit type parameter -> spec ⊆ scenario -> compiles', t => {
   const o = { a: 42, b: 'a' };
 
   satisfies({
-    a: T
+    a: T,
   })(o);
 
   t.pass('compilation-only');
@@ -77,7 +75,7 @@ test('explicit type parameter -> spec includes symbol keys -> compiles', t => {
 
   satisfies<typeof o>({
     a: T,
-    [s]: T
+    [s]: T,
   })(o);
 
   t.pass('compilation-only');
