@@ -1,6 +1,6 @@
 {
   "name": "@recubed/object-satisfies",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "key-based object validation",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
