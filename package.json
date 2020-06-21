@@ -21,7 +21,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "repository": "https://github.com/recubed/object-satisfies",
+  "repository": "https://github.com/rethree/object-satisfies",
   "scripts": {
     "lint": "eslint -c .eslintrc.js 'lib/**/*.ts'",
     "build": "tsc -p tsconfig.build.json",

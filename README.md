@@ -26,7 +26,7 @@ const scenario = {
 `object-satisfies` allows key-based predicate composition, i.e.:
 
 ```typescript
-import satisfies from '@rethree/satisfies';
+import satisfies from '@recubed/object-satisfies';
 
 const spec = satisfies({
   a: x => x === 42,
@@ -46,7 +46,7 @@ unavailable at the time `spec` argument is defined. To overcome this limitation 
 to specify generic argument explicitly, like this:
 
 ```typescript
-import satisfies from '@rethree/satisfies';
+import satisfies from '@recubed/object-satisfies';
 
 const spec = satisfies<typeof scenario>({
   a: x => x === 42,
