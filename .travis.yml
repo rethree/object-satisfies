@@ -13,7 +13,8 @@ jobs:
   - stage: lint
     script: yarn lint
   - stage: test
-    script: yarn test:cov
+    script: yarn test
+    after_success: yarn coverage
   - stage: build
     script: yarn build
     deploy:

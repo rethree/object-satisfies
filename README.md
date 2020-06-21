@@ -1,3 +1,13 @@
+[![MIT
+license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
+[![Build
+Status](https://travis-ci.org/rethree/object-satisfies.svg?branch=master)](https://travis-ci.org/rethree/object-satisfies) 
+[![Coverage Status](https://coveralls.io/repos/github/rethree/object-satisfies/badge.svg?branch=master)](https://coveralls.io/github/rethree/object-satisfies?branch=master)
+[![CodeFactor](https://www.codefactor.io/repository/github/rethree/object-satisfies/badge)](https://www.codefactor.io/repository/github/rethree/object-satisfies)
+[![dependencies
+Status](https://david-dm.org/rethree/object-satisfies/status.svg)](https://david-dm.org/rethree/object-satisfies) 
+[![devDependencies Status](https://david-dm.org/rethree/object-satisfies/status/dev-status.svg)](https://david-dm.org/rethree/object-satisfies/status?type=dev)
+
 ### object-satisfies
 
 Tiny helper library written to simplify the task of fine-grained object validation. 
@@ -13,7 +23,7 @@ const scenario = {
 }
 ```
 
-`object-satisfies` would allow key-based predicate composition, i.e.:
+`object-satisfies` allows key-based predicate composition, i.e.:
 
 ```typescript
 import satisfies from '@rethree/satisfies';
@@ -44,7 +54,7 @@ satisfies<typeof scenario>({
 })(scenario);
 ```
 
-...however, if validation of explicitly typed scenario object against a spec is performed one needs 
+...however, if validation of explicitly typed "scenario object" against a spec is performed one needs 
 to make sure the former is a superset (key-wise) of the latter, optional properties do count. To fix the 
 compilation error caused by the piece of code above following type definition would need to be
 provided.
